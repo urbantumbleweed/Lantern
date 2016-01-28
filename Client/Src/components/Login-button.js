@@ -17,6 +17,10 @@ var {
   FBSDKAccessToken,
 } = FBSDKCore;
 
+import {
+  Actions
+} from 'react-native-router-flux';
+
 var Login = React.createClass({
 
   componentDidMount: function() {
@@ -33,7 +37,7 @@ var Login = React.createClass({
     //all of this vars are here to get this to bind correct
     var name;
     var id;
-    var push = () => this.props.navigator.push({name: 'home', userName: name, id: id});
+    var push = () => Actions.currentLocation();
 
     new FBSDKGraphRequest((error, result) => {
       if (error) {
